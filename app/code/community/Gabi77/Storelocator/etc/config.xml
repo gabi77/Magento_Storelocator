@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Gabi77_Storelocator>
+			<version>0.0.1</version>
+		</Gabi77_Storelocator>
+	</modules>
+	
+    <frontend>
+        <routers>
+            <storelocator>
+                <use>standard</use>
+                <args>
+                    <module>Gabi77_Storelocator</module>
+                    <frontName>Storelocator</frontName>
+                </args>
+            </storelocator>
+        </routers>
+        <layout>
+            <updates>
+                <storelocator>
+                    <file>storelocator.xml</file>
+                </storelocator>
+            </updates>
+        </layout>
+    </frontend>   
+	<admin>
+		<routers>
+			<storelocator>
+				<use>admin</use>
+				<args>
+					<module>Gabi77_Storelocator</module>
+					<frontName>storelocator</frontName>
+				</args>
+			</storelocator>
+		</routers>
+	</admin>
+	<adminhtml>
+		<menu>
+			<storelocator module="storelocator">
+				<title>Store locator</title>
+				<sort_order>100</sort_order>
+				<children>
+				    <new module="storelocator">
+                        <title>Add New store</title>
+                        <action>storelocator/adminhtml_storelocator/new/</action>
+                        <sort_order>0</sort_order>
+                        <resource>storelocator/adminhtml/storelocator/new</resource>
+                    </new>
+					<storelocator module="storelocator">
+						<title>Carnet d'adresse</title>
+						<action>storelocator/adminhtml_storelocator/</action>
+                        <sort_order>1</sort_order>
+                    	<resource>storelocator/adminhtml/storelocator</resource>
+					</storelocator>
+					<type module="storelocator">
+                      	<title>Type Boutique</title>
+						<action>storelocator/adminhtml_type/</action>
+                    	<sort_order>3</sort_order>
+                        <resource>storelocator/adminhtml/type</resource>
+                    </type>
+				</children>
+			</storelocator>
+		</menu>
+		
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<storelocator translate="title" module="storelocator">
+											<title>Storelocator</title>
+										</storelocator>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<storelocator>
+					<file>storelocator.xml</file>
+				</storelocator>
+			</updates>
+		</layout>
+	</adminhtml>
+	<global>
+        <models>
+            <storelocator>
+                <class>Gabi77_Storelocator_Model</class>
+                <resourceModel>storelocator_mysql4</resourceModel>
+            </storelocator>
+            <storelocator_mysql4>
+                <class>Gabi77_Storelocator_Model_Mysql4</class>
+                <entities>
+                    <storelocator>
+                        <table>gabi77_store_locator</table>
+                    </storelocator>
+                    <type>
+                        <table>gabi77_store_type</table>
+                    </type>
+                </entities>
+            </storelocator_mysql4>
+        </models>
+        <resources>
+            <storelocator_setup>
+                <setup>
+                    <module>Gabi77_Storelocator</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </storelocator_setup>
+            <storelocator_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </storelocator_write>
+            <storelocator_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </storelocator_read>
+        </resources>
+        <blocks>
+            <storelocator>
+                <class>Gabi77_Storelocator_Block</class>
+            </storelocator>
+        </blocks>
+        <helpers>
+            <storelocator>
+                <class>Gabi77_Storelocator_Helper</class>
+            </storelocator>
+        </helpers>
+    </global>
+</config>

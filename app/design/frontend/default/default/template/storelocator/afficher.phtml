@@ -1,0 +1,76 @@
+<<style>
+<!--
+	.store-locator {
+		background-image:url(<?php echo $this->getModel()->getImage() ?>);
+	}
+-->
+</style>
+
+<div class="store-locator"> 
+  <h2><?php echo $this->getModel()->getTitle() ?></h2>
+  </div>
+<br />
+<br />
+<?php if($this->getModel()->isVisible()){ ?>
+<?php echo $this->addJs(); ?>
+<?php echo $this->addCss(); ?>
+<script>
+jQuery.noConflict();
+	$(function() {
+		$( "#dialog-modal-store1" ).dialog({
+			autoOpen: false,
+			show: {
+				effect: "blind",
+				duration: 1000
+			},
+			hide: {
+				effect: "explode",
+				duration: 1000
+			}
+		});
+
+		$( "#store1" ).click(function() {
+			$( "#dialog-modal-store1" ).dialog( "open" );
+		});
+	});
+	</script>
+<div style="padding:10px; display:block;">
+<h2><?php echo $this->getModel()->getTitle() ?></h2>
+<hr>
+<p><?php echo nl2br($this->getModel()->getDescription()); ?></p>
+<table id="storemanager">
+<thead>
+<tr>
+<th class="Code"><?php echo $this->__('Name') ?></th>
+<th class="Address"><?php echo $this->__('Street Address') ?></th>
+<th class="ZipCode">&nbsp;</th>
+<th class="ZipCode"><?php echo $this->__('Zip/Postal Code') ?></th>
+<th class="City"><?php echo $this->__('City') ?></th>
+<th class="Type"><?php echo $this->__('Type') ?></th>
+<th class="Phone"><?php echo $this->__('Phone') ?></th>
+</tr>
+</thead>
+<tbody>
+<?php
+$type = "";
+$tab = "";
+$collection = $this->methodblock();
+foreach($collection as $data)
+{
+	echo 	'<tr><td class="Code">'.$data->getData('name').'</td>
+			<td class="Address">'.strtolower($data->getData('address1') . ' ' . $data->getData('address2')) .' ' .$data->getData('country').'</td>
+			<td class="ZipCode"><button id="store'. $data->getData('id_store').'">Voir</button></td>
+			<td class="ZipCode">'.$data->getData('codepostal').'</td>
+			<td class="City">'.$data->getData('city').'</td>
+			<td class="Type">'.$data->getData('typename').'</td>
+			<td class="Phone">'.$data->getData('phone').'</td><tr>';
+	$tab .= '<div id="dialog-modal-store'. $data->getData('id_store').'" title="'.$data->getData('name').'">'.$data->getData('information').'</div>';
+}
+?>
+</tbody>
+</table>
+<?php echo $tab; ?>
+</div>
+<?php } else { ?>
+<div style="padding:10px; display:block;"><?php echo $this->__('The store locator is not actived'); ?><br><?php echo $this->__('Please Check your System->Configuration->General->Storelocator')?></div>
+<?php } ?>

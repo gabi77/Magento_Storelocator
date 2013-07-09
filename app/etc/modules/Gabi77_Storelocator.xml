@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * @category    Gabi77
+ * @package     Gabi77_Storelocator
+ * @copyright   Copyright (c) 2013 Gabi77 (http://www.gabi77.com)
+ * @license     Open Gabi77
+ */
+-->
+<config>
+    <modules>
+        <Gabi77_Storelocator>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Gabi77_Storelocator>
+    </modules>
+</config>
