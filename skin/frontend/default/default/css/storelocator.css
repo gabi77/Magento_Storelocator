@@ -1,0 +1,25 @@
+/**************************** STORE LOCATOR ******************************************/
+
+.store-locator { background: url("images/store-locator-bg.jpg") no-repeat scroll 350px center #1A181D; color: #FFFFFF; padding: 20px 30px; }
+.store-locator h2 { font-family: 'Didact Gothic',Arial,Helvetica,sans-serif; font-size: 3.667em; margin-left: -15px; padding-bottom: 15px; color:#FFF; }
+
+.store-locator .input-box { padding-bottom: 10px; }
+.store-locator .input-box label { float: left; font-size: 0.917em; margin-top: 5px; width: 80px; }
+.store-locator .input-box select { border: 1px solid #DDDDDD; color: #767477; font-size: 0.917em; font-style: italic; padding: 2px; width: 192px; }
+.store-locator button { background: none repeat scroll 0 0 #999999; border: 0 none; color: #FFFFFF; display: block; font-family: 'Didact Gothic',Arial,Helvetica,sans-serif; letter-spacing: 1px; margin-left: 172px !important; padding: 5px 10px; width: 100px; }
+table #storemanager { width:100%; }
+#storemanager td.Code { border-right: 1px solid #E7E7E7; width: 180px; }
+#storemanager td { border-bottom: 1px solid #E7E7E7; padding: 10px 0 10px 10px; }
+#storemanager th.Code { border-right: 1px solid #FFFFFF; width: 180px; }
+#storemanager th.Address { border-right: 1px solid #E7E7E7; width: 340px; }
+#storemanager th.ZipCode { border-right: 1px solid #E7E7E7; width: 25px; }
+#storemanager th.City { border-right: 1px solid #E7E7E7; width: 110px; }
+#storemanager th.Type { border-right: 1px solid #E7E7E7; width: 145px; }
+#storemanager th.Phone { width: 120px; }
+#storemanager th { background: none repeat scroll 0 0 #CAC2B9; color: #000000; font-size: 0.917em; padding: 5px 0 5px 10px; }
+#storemanager td.Address { border-right: 1px solid #E7E7E7; }
+#storemanager td.ZipCode { border-right: 1px solid #E7E7E7; }
+#storemanager td.City { border-right: 1px solid #E7E7E7; }
+#storemanager td.Type { border-right: 1px solid #E7E7E7; }
+#storemanager td.Phone {}
+#storemanager table, #storemanager td, #storemanager th { vertical-align: middle; }
